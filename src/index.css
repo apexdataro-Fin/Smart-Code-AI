@@ -1,0 +1,1549 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ─── LIGHT MODE ─────────────────────────────────────────── */
+:root {
+  --button-outline: rgba(0, 0, 0, 0.1);
+  --badge-outline: rgba(0, 0, 0, 0.05);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.08);
+
+  --background:          220 33% 99%;
+  --foreground:          224 47% 11%;
+
+  --border:              220 13% 89%;
+
+  --card:                0 0% 100%;
+  --card-foreground:     224 47% 11%;
+  --card-border:         220 13% 89%;
+
+  --sidebar:             220 25% 97%;
+  --sidebar-foreground:  224 47% 11%;
+  --sidebar-border:      220 13% 89%;
+  --sidebar-primary:     217 91% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent:      220 20% 94%;
+  --sidebar-accent-foreground: 224 47% 11%;
+  --sidebar-ring:        217 91% 55%;
+
+  --popover:             0 0% 100%;
+  --popover-foreground:  224 47% 11%;
+  --popover-border:      220 13% 89%;
+
+  --primary:             217 91% 55%;
+  --primary-foreground:  0 0% 100%;
+
+  --secondary:           262 72% 56%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted:               220 20% 96%;
+  --muted-foreground:    220 9% 46%;
+
+  --accent:              220 20% 94%;
+  --accent-foreground:   224 47% 11%;
+
+  --destructive:         0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --input:               220 13% 89%;
+  --ring:                217 91% 55%;
+
+  --chart-1: 217 91% 55%;
+  --chart-2: 160 84% 39%;
+  --chart-3: 30 84% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+
+  --app-font-sans: 'Cairo', 'Segoe UI', sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 0.5rem;
+
+  --shadow-2xs: 0px 1px 2px 0px rgba(0,0,0,0.04);
+  --shadow-xs:  0px 1px 3px 0px rgba(0,0,0,0.06);
+  --shadow-sm:  0px 1px 4px 0px rgba(0,0,0,0.07), 0px 1px 2px -1px rgba(0,0,0,0.04);
+  --shadow:     0px 2px 8px 0px rgba(0,0,0,0.08), 0px 1px 2px -1px rgba(0,0,0,0.04);
+  --shadow-md:  0px 4px 12px 0px rgba(0,0,0,0.10), 0px 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg:  0px 8px 24px 0px rgba(0,0,0,0.12), 0px 4px 6px -1px rgba(0,0,0,0.06);
+  --shadow-xl:  0px 12px 32px 0px rgba(0,0,0,0.14), 0px 8px 10px -1px rgba(0,0,0,0.06);
+  --shadow-2xl: 0px 24px 48px 0px rgba(0,0,0,0.18);
+
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border:  hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border:         hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border:       hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border:           hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border:          hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border:     hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* ─── DARK MODE ──────────────────────────────────────────── */
+.dark {
+  --button-outline: rgba(255, 255, 255, 0.1);
+  --badge-outline: rgba(255, 255, 255, 0.05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255, 255, 255, 0.04);
+  --elevate-2: rgba(255, 255, 255, 0.09);
+
+  --background:          222 24% 8%;
+  --foreground:          220 20% 93%;
+
+  --border:              222 24% 17%;
+
+  --card:                222 24% 11%;
+  --card-foreground:     220 20% 93%;
+  --card-border:         222 24% 17%;
+
+  --sidebar:             222 24% 9%;
+  --sidebar-foreground:  220 20% 93%;
+  --sidebar-border:      222 24% 17%;
+  --sidebar-primary:     217 91% 65%;
+  --sidebar-primary-foreground: 222 45% 12%;
+  --sidebar-accent:      222 24% 16%;
+  --sidebar-accent-foreground: 220 20% 93%;
+  --sidebar-ring:        217 91% 65%;
+
+  --popover:             222 24% 11%;
+  --popover-foreground:  220 20% 93%;
+  --popover-border:      222 24% 17%;
+
+  --primary:             217 91% 65%;
+  --primary-foreground:  222 45% 12%;
+
+  --secondary:           265 79% 73%;
+  --secondary-foreground: 222 45% 12%;
+
+  --muted:               222 24% 16%;
+  --muted-foreground:    220 13% 57%;
+
+  --accent:              222 24% 16%;
+  --accent-foreground:   220 20% 93%;
+
+  --destructive:         0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --input:               222 24% 17%;
+  --ring:                217 91% 65%;
+
+  --chart-1: 217 91% 65%;
+  --chart-2: 160 84% 49%;
+  --chart-3: 30 84% 65%;
+  --chart-4: 280 65% 70%;
+  --chart-5: 340 75% 65%;
+
+  --shadow-2xs: 0px 1px 2px 0px rgba(0,0,0,0.25);
+  --shadow-xs:  0px 1px 3px 0px rgba(0,0,0,0.30);
+  --shadow-sm:  0px 1px 4px 0px rgba(0,0,0,0.35), 0px 1px 2px -1px rgba(0,0,0,0.25);
+  --shadow:     0px 2px 8px 0px rgba(0,0,0,0.40), 0px 1px 2px -1px rgba(0,0,0,0.25);
+  --shadow-md:  0px 4px 12px 0px rgba(0,0,0,0.45), 0px 2px 4px -1px rgba(0,0,0,0.30);
+  --shadow-lg:  0px 8px 24px 0px rgba(0,0,0,0.50), 0px 4px 6px -1px rgba(0,0,0,0.30);
+  --shadow-xl:  0px 12px 32px 0px rgba(0,0,0,0.55), 0px 8px 10px -1px rgba(0,0,0,0.30);
+  --shadow-2xl: 0px 24px 48px 0px rgba(0,0,0,0.60);
+}
+
+/* ─── BASE ───────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    line-height: 1.8;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--app-font-sans);
+    font-weight: 800;
+    line-height: 1.4;
+  }
+
+  code, pre, kbd, samp {
+    font-family: var(--app-font-mono);
+  }
+}
+
+/* ─── PROSE OVERRIDES ─────────────────────────────────── */
+.prose {
+  --tw-prose-body: hsl(var(--foreground) / 0.85);
+  --tw-prose-headings: hsl(var(--primary));
+  --tw-prose-links: hsl(var(--primary));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-code: hsl(var(--foreground));
+  --tw-prose-pre-bg: #1d1f21;
+  max-width: none;
+}
+.prose pre {
+  direction: ltr;
+  text-align: left;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  unicode-bidi: isolate;
+}
+
+/* ─── SELECTIVE BIDI ──────────────────────────────────── */
+/* We previously applied heavy blanket `unicode-bidi: isolate` to
+   every prose element. That over-corrects: pure-Arabic paragraphs
+   lost their RTL grammatical reordering slightly, and the rule
+   flattened visual cues. We now keep bidi isolation ONLY on code
+   blocks (above) and let mixed Arabic+Latin paragraphs flow with
+   semantic <bdi dir="ltr"> spans injected by the renderer. */
+
+.prose code {
+  direction: ltr;
+}
+
+.prose td .code,
+.prose th .code {
+  unicode-bidi: isolate;
+}
+
+/* ─── READING MODE ─────────────────────────────────────── */
+.reading-mode {
+  --reading-max-width: 78ch;
+}
+
+.reading-mode main {
+  background: hsl(var(--background));
+}
+
+.reading-mode aside {
+  transform: translateX(100%) !important;
+}
+
+.reading-mode .lg\:pr-72 {
+  padding-right: 0 !important;
+}
+
+.reading-mode .reading-container {
+  max-width: var(--reading-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.reading-mode .progress-summary,
+.reading-mode .docx-download,
+.reading-mode [data-chrome="chrome"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ─── MOBILE OVERFLOW PROTECTION ─────────────────────── */
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Tables scroll horizontally INSIDE their own wrapper — they must
+   NOT push the page body wider than the viewport. */
+.table-scroll-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Code blocks are individually scrollable. The headers/labels
+   inside them must not overflow either. */
+pre, code, .font-mono {
+  max-width: 100%;
+}
+
+/* ─── UTILITY: ELEVATION ─────────────────────────────────── */
+.no-default-hover-elevate {}
+.no-default-active-elevate {}
+
+.toggle-elevate::before,
+.toggle-elevate-2::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0px;
+  border-radius: inherit;
+  z-index: -1;
+}
+.toggle-elevate.toggle-elevated::before {
+  background-color: var(--elevate-2);
+}
+.border.toggle-elevate::before { inset: -1px; }
+
+@layer utilities {
+  input[type='search']::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+  .border.hover-elevate:not(.no-default-hover-elevate)::after,
+  .border.active-elevate:not(.no-default-active-elevate)::after,
+  .border.hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .border.active-elevate-2:not(.no-default-active-elevate)::after {
+    inset: -1px;
+  }
+}
+
+/* ─── PRINT STYLES ───────────────────────────────────────── */
+@media print {
+  .no-print { display: none !important; }
+  .page-break { page-break-before: always; }
+  body { direction: rtl; font-family: 'Cairo', sans-serif; }
+  .no-print-bg { background: transparent !important; }
+  a { color: inherit !important; text-decoration: none; }
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+
+/* ─── SELECTION ──────────────────────────────────────────── */
+::selection {
+  background: hsl(var(--primary) / 0.25);
+  color: hsl(var(--foreground));
+}
+
+/* ─── LAB: LANGUAGE SELECTOR STRIP ────────────────────── */
+.lab-langstrip {
+  font-family: var(--app-font-mono);
+}
+
+.lang-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--muted-foreground));
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.05s;
+  white-space: nowrap;
+}
+
+.lang-chip:hover:not(:disabled) {
+  background: hsl(var(--accent));
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--primary) / 0.4);
+}
+
+.lang-chip:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.lang-chip:disabled {
+  cursor: default;
+  opacity: 0.95;
+}
+
+.lang-chip-active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+  box-shadow: 0 4px 12px hsl(var(--primary) / 0.25);
+}
+
+.lang-chip-pending {
+  outline: 2px dashed hsl(var(--primary));
+  outline-offset: 1px;
+}
+
+.lang-chip .lang-glyph {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.25rem;
+  border-radius: 0.3rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.lang-chip-active .lang-glyph {
+  background: hsl(var(--primary-foreground) / 0.18);
+  color: hsl(var(--primary-foreground));
+}
+
+.lang-select {
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 0.75rem;
+  font-family: inherit;
+}
+
+@media (max-width: 767px) {
+  /* On phones, show only the dropdown instead of the chip strip. */
+  .lab-langstrip .lang-chip { display: none; }
+}
+
+@media (min-width: 768px) {
+  /* On ≥ md breakpoint, hide the mobile dropdown. */
+  .lab-langstrip .lang-select { display: none; }
+}
+
+/* ─── LAB: PYTHON LOAD STATUS BANNER ─────────────────── */
+.py-load-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.85);
+  backdrop-filter: blur(6px);
+  color: hsl(var(--foreground));
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.py-load-banner-error {
+  background: hsl(var(--destructive) / 0.10);
+  border-top-color: hsl(var(--destructive) / 0.40);
+  color: hsl(var(--destructive-foreground));
+}
+
+.py-load-retry-btn {
+  display: inline-flex;
+  align-items: center;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 0;
+  border-radius: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.py-load-retry-btn:hover {
+  background: hsl(var(--primary) / 0.9);
+}
+
+/* ─── LAB: TOOLBAR BUTTON STATES ─────────────────────── */
+.toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 36px;
+  padding: 0 0.6rem;
+  border-radius: 0.4rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.toolbar-btn:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+}
+
+.toolbar-run {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+  font-weight: 800;
+}
+
+.toolbar-run:hover {
+  background: hsl(var(--primary) / 0.92);
+  color: hsl(var(--primary-foreground));
+}
+
+.toolbar-stop {
+  background: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+  border-color: hsl(var(--destructive));
+  font-weight: 800;
+}
+
+.toolbar-stop:hover {
+  background: hsl(var(--destructive) / 0.92);
+  color: hsl(var(--destructive-foreground));
+}
+
+.toolbar-loading {
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  border-color: hsl(var(--border));
+  cursor: not-allowed;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+/* ============================================================================
+ * MOBILE LAB v4 — phone-first IDE
+ * ============================================================================ */
+
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+/* ---------- Root + vertical layout (grid) ---------- */
+
+.mobile-lab-ide {
+  height: var(--vvh, 100dvh);
+  width: 100%;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  display: grid;
+  /* 36 px header (Language + filename) → vr-h viewer → 18 px divider → editor fills the rest.
+     The Run · Reset · Files · Settings bar lives in the global Shell header. */
+  grid-template-rows: 36px var(--vr-h, 260px) 18px 1fr;
+  overflow: hidden;
+  position: relative;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+/* Mobile viewport overflow safety: explicitly block horizontal page scroll. */
+html, body, .mobile-lab-ide {
+  overflow-x: hidden !important;
+}
+
+.mobile-lab-header {
+  height: 36px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  z-index: 2;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.mobile-lab-header-row1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.mobile-lab-filename {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--app-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--muted) / 0.5);
+  padding: 4px 8px;
+  border-radius: 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: ltr;
+  text-align: left;
+}
+
+/* Viewer (top) and Editor (bottom) — sizing is via grid + CSS vars. */
+.mobile-lab-viewer {
+  min-height: 0;
+  overflow: hidden;
+  background: hsl(var(--background));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.mobile-lab-editor {
+  min-height: 0;
+  overflow: hidden;
+  background: hsl(var(--background));
+  position: relative;
+}
+
+/* When the keyboard is open, force a minimum for the editor so at
+   least 3 lines + Run button stay visible. */
+.mobile-lab-keyboard-open .mobile-lab-editor {
+  min-height: 110px;
+}
+
+/* Drag-protection class: prevents Monaco from swallowing PointerEvents
+   so a fast drag still completes. The dragging class is toggled by
+   MobileLabRoot on Divider onPointerDown / onPointerUp. */
+.mobile-lab-dragging .mobile-lab-editor,
+.mobile-lab-dragging .mobile-lab-viewer { pointer-events: none; }
+.mobile-lab-dragging .mobile-divider { pointer-events: auto; }
+
+/* Hide dialog style inside mobile shell wrapper but keep desktop 404 fallback */
+.lab-shell-mobile > div[role='dialog']:not(.mobile-sheet-root) { display: none; }
+
+/* ---------- Drag divider ---------- */
+
+.mobile-divider {
+  position: relative;
+  height: 18px;
+  background: hsl(var(--card));
+  border-bottom: 1px solid hsl(var(--border));
+  touch-action: none;
+  cursor: row-resize;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-divider::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: transparent;
+}
+
+.mobile-divider[data-dragging='true'] {
+  background: hsl(var(--primary) / 0.10);
+}
+
+.mobile-divider-handle {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  height: 18px;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.mobile-divider-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---------- Bottom action bar (Run/Stop/Reset/Files/Settings) ---------- */
+
+.mobile-runbar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 8px 12px calc(8px + var(--safe-bottom));
+  border-top: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  z-index: 25;
+  height: var(--runbar-h, 60px);
+}
+
+/* The v2 mobile-runbar-top layout was superseded by v6 (mobile-toolbar-v3)
+   where the Lab action bar lives in the global Shell header instead of
+   inside MobileLabRoot. The `mobile-runbar-top` variant is retained
+   only as a one-line no-op hook so any external styling targeting
+   that className still resolves harmlessly. */
+
+.mobile-run-btn,
+.mobile-action-btn {
+  min-height: 56px;
+  padding: 0 8px;
+  border-radius: 0.6rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-weight: 800;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, transform 0.05s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* In the top placement the strip is only 44 px tall — buttons can
+   shrink and drop their heavy borders to feel airy. */
+.mobile-runbar.mobile-runbar-top .mobile-run-btn,
+.mobile-runbar.mobile-runbar-top .mobile-action-btn {
+  min-height: 40px;
+  padding: 0 6px;
+  font-size: 12px;
+  border-radius: 0.5rem;
+}
+
+.mobile-action-btn:active { transform: translateY(1px); background: hsl(var(--accent)); }
+
+.mobile-run-go { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); border-color: hsl(var(--primary)); }
+.mobile-run-go:active { background: hsl(var(--primary) / 0.92); }
+.mobile-run-stop { background: hsl(var(--destructive)); color: hsl(var(--destructive-foreground)); border-color: hsl(var(--destructive)); }
+.mobile-run-loading {
+  background: hsl(var(--muted)); color: hsl(var(--muted-foreground));
+  cursor: not-allowed; opacity: 0.95;
+}
+.mobile-run-error {
+  background: hsl(var(--destructive) / 0.10); color: hsl(var(--destructive));
+  border-color: hsl(var(--destructive) / 0.40);
+  font-size: 12px;
+}
+
+.mobile-run-error-dot { display: inline-flex; align-items: center; justify-content: center; padding: 0 2px; }
+
+/* ---------- Editor host on mobile ---------- */
+
+.mobile-editor-host {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: hsl(var(--background));
+}
+
+/* ----------------------------------------------------------------------------
+ * Mobile Monaco UX — native OS text-selection handles
+ * ----------------------------------------------------------------------------
+ * On iPhone Safari / Android Chrome, monaco-editor sets aggressive
+ * user-select on some internal layers. We override:
+ *   1. -webkit-touch-callout → default (allow iOS Copy bubble)
+ *   2. tap-highlight → transparent (no gray tap flash)
+ *   3. user-select → auto on Monaco's contenteditable descendants
+ * Works for both the mobile wrapper (.mobile-editor-host) and the
+ * generic mount point (.lab-monaco-host) used in DesktopLabShell.
+ * -------------------------------------------------------------------------- */
+
+.lab-monaco-host,
+.mobile-editor-host {
+  -webkit-touch-callout: default;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.lab-monaco-host .monaco-editor,
+.lab-monaco-host .monaco-editor .view-lines,
+.lab-monaco-host .monaco-editor .view-line,
+.mobile-editor-host .monaco-editor,
+.mobile-editor-host .monaco-editor .view-lines,
+.mobile-editor-host .monaco-editor .view-line {
+  user-select: auto !important;
+  -webkit-user-select: auto !important;
+}
+
+/* Allow iOS to draw its own selection caret without Monaco's caret overlay
+   fighting it on touch. We only relax this on actual touch devices via a
+   body-level data attribute that MobileLabRoot sets. */
+html[data-touch='true'] .lab-monaco-host .cursor,
+html[data-touch='true'] .mobile-editor-host .cursor {
+  /* Leave cursor rendering alone — Monaco's "smooth" caret looks fine
+     together with native iOS handles. This rule is here as a hook for
+     any future overlay suppression if caret fights selection. */
+}
+
+/* ---------- Bottom sheet ---------- */
+
+.mobile-sheet-root {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+.mobile-sheet-visible { pointer-events: auto; }
+.mobile-sheet-hidden { pointer-events: none; }
+
+.mobile-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background: hsl(220 11% 6% / 0.50);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.mobile-sheet-visible .mobile-sheet-backdrop { opacity: 1; }
+
+.mobile-sheet-panel {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: hsl(var(--card));
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 -8px 24px hsl(0 0% 0% / 0.18);
+  display: flex;
+  flex-direction: column;
+  touch-action: none;
+  transform: translateY(110%);
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding-bottom: var(--safe-bottom);
+  max-height: 92vh;
+}
+.mobile-sheet-visible .mobile-sheet-panel { transform: translateY(0); }
+
+.mobile-sheet-handle {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 6px;
+  cursor: grab;
+}
+.mobile-sheet-handle span {
+  width: 36px;
+  height: 4px;
+  border-radius: 9999px;
+  background: hsl(var(--muted-foreground) / 0.45);
+}
+
+.mobile-sheet-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 12px 10px;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.mobile-sheet-titlebar h3 { margin: 0; font-size: 16px; font-weight: 800; }
+
+.mobile-sheet-close {
+  width: 36px; height: 36px;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+.mobile-sheet-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 12px 12px 12px;
+}
+
+/* ---------- Language picker (mobile) ---------- */
+
+.mobile-lang-trigger {
+  display: inline-flex; align-items: center; gap: 5px;
+  min-height: 30px;
+  padding: 4px 10px;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.mobile-lang-trigger:active {
+  transform: translateY(1px);
+}
+
+.mobile-lang-glyph {
+  display: inline-grid; place-items: center;
+  min-width: 28px; height: 24px; padding: 0 6px;
+  border-radius: 0.3rem;
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  font-size: 11px; font-weight: 800;
+}
+
+.mobile-lang-list {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 0 4px 12px;
+}
+
+.mobile-lang-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px;
+  border-radius: 0.6rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  text-align: right;
+  font-size: 14px;
+  min-height: 56px;
+  cursor: pointer;
+}
+
+.mobile-lang-row-active { border-color: hsl(var(--primary)); background: hsl(var(--primary) / 0.08); cursor: default; }
+
+.mobile-lang-glyph-lg {
+  display: inline-grid; place-items: center;
+  width: 36px; height: 32px;
+  border-radius: 0.4rem;
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  font-size: 12px; font-weight: 800;
+}
+
+.mobile-lang-info { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+
+/* ============================================================================
+ * MOBILE LAB v6 — compact toolbar renders INTO the global Shell header
+ *
+ * The Lab's Run · Reset · Files · Settings buttons are now mounted by
+ * <MobileShellControlBar/> from the Shell header (mobile only). They
+ * live inside `.mobile-shell-control-bar`, a compact 4-button row that
+ * fits between DOCX and the Theme toggle on a 375 px iPhone.
+ * ============================================================================ */
+
+.mobile-shell-control-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  /* Defensive: prevent this row from blowing out the header on tiny
+     screens — even if the row is narrow we'll just clip gracefully
+     instead of wrapping. */
+  flex-shrink: 0;
+}
+
+.shell-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 0.45rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, transform 0.05s;
+}
+
+.shell-icon-btn:active { transform: translateY(1px); background: hsl(var(--accent)); }
+
+.shell-icon-btn-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+}
+.shell-icon-btn-primary:active { background: hsl(var(--primary) / 0.92); }
+
+.shell-icon-btn-danger {
+  background: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+  border-color: hsl(var(--destructive));
+}
+.shell-icon-btn-danger:active { background: hsl(var(--destructive) / 0.92); }
+
+.shell-icon-btn-loading {
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  border-color: hsl(var(--border));
+  cursor: wait;
+  opacity: 0.95;
+}
+
+.shell-icon-btn-error {
+  background: hsl(var(--destructive) / 0.10);
+  color: hsl(var(--destructive));
+  border-color: hsl(var(--destructive) / 0.40);
+}
+
+/* The Small error dot returned inline next to the Run button. */
+.mobile-run-error-dot {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2px;
+}
+
+/* On the very narrowest phones (iPhone SE 320 px wide), give the
+   global Shell header a tiny extra vertical squeeze so the row
+   doesn't push the page below the top viewport. */
+@media (max-width: 374px) {
+  .mobile-shell-control-bar { gap: 2px; }
+  .shell-icon-btn { width: 30px; height: 30px; }
+}
+
+/* ---------- Files sheet ---------- */
+
+.mobile-files-list { display: flex; flex-direction: column; gap: 8px; list-style: none; padding: 0; margin: 0 0 12px; }
+.mobile-files-row {
+  display: flex; align-items: stretch;
+  border-radius: 0.6rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  overflow: hidden;
+}
+.mobile-files-row-active { border-color: hsl(var(--primary)); background: hsl(var(--primary) / 0.06); }
+
+.mobile-files-row-main {
+  flex: 1; display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; min-height: 56px;
+  background: transparent; border: 0; color: inherit; text-align: right;
+  cursor: pointer;
+}
+
+.mobile-files-row-glyph { font-size: 18px; }
+
+.mobile-files-rename-input {
+  flex: 1;
+  min-height: 40px;
+  padding: 6px 10px;
+  border-radius: 0.4rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--app-font-mono);
+  font-size: 14px;
+}
+
+.mobile-files-actions { display: flex; align-items: stretch; gap: 4px; padding: 6px; }
+.mobile-files-icon-btn {
+  min-width: 40px; min-height: 40px;
+  border-radius: 0.4rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--muted-foreground));
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.mobile-files-icon-btn:active { transform: translateY(1px); background: hsl(var(--accent)); }
+.mobile-files-icon-confirm { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); border-color: hsl(var(--primary)); }
+.mobile-files-icon-danger { color: hsl(var(--destructive)); border-color: hsl(var(--destructive) / 0.40); }
+
+.mobile-files-add-btn {
+  width: 100%; min-height: 52px;
+  border-radius: 0.6rem;
+  border: 1px dashed hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-weight: 800; font-size: 14px;
+  cursor: pointer;
+}
+
+/* ---------- Settings sheet ---------- */
+
+.mobile-settings-sheet { display: flex; flex-direction: column; gap: 14px; }
+.mobile-settings-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 0.6rem;
+  background: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+}
+
+.mobile-settings-row-title { font-size: 13px; font-weight: 700; }
+
+.mobile-stepper { display: inline-flex; align-items: center; gap: 8px; }
+.mobile-stepper-btn {
+  width: 36px; height: 36px; border-radius: 0.4rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  font-size: 18px; font-weight: 800;
+  color: hsl(var(--foreground));
+}
+.mobile-stepper-value { min-width: 32px; text-align: center; font-weight: 800; }
+
+.mobile-segmented {
+  display: inline-flex; gap: 4px;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  padding: 4px;
+}
+.mobile-segmented-btn {
+  min-width: 36px; min-height: 32px;
+  padding: 0 10px;
+  border-radius: 0.35rem;
+  border: 0; background: transparent;
+  color: hsl(var(--muted-foreground));
+  font-weight: 700; font-size: 13px;
+}
+.mobile-segmented-active { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+
+.mobile-switch {
+  width: 44px; height: 26px;
+  border-radius: 9999px; border: 1px solid hsl(var(--border));
+  background: hsl(var(--muted));
+  position: relative; padding: 0;
+  transition: background 0.12s;
+}
+.mobile-switch-on { background: hsl(var(--primary)); }
+.mobile-switch-knob {
+  position: absolute; top: 2px; left: 2px;
+  width: 20px; height: 20px; border-radius: 9999px;
+  background: hsl(var(--background));
+  transition: left 0.12s;
+}
+.mobile-switch-on .mobile-switch-knob { left: 22px; background: hsl(var(--primary-foreground)); }
+
+.mobile-settings-reset-btn {
+  width: 100%; min-height: 48px;
+  border-radius: 0.6rem; border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  font-weight: 800;
+}
+
+/* ---------- Console / Output / Errors sheets ---------- */
+
+.mobile-output-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+.mobile-output-tool-btn {
+  width: 40px; height: 40px;
+  border: 1px solid hsl(var(--border)); background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border-radius: 0.45rem;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+.mobile-output-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 12px;
+  background: hsl(var(--background));
+}
+
+.mobile-output-body-mono {
+  font-family: var(--app-font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.mobile-output-line {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 4px 0;
+  font-family: var(--app-font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-wrap; word-break: break-word;
+}
+.mobile-output-line-error { color: hsl(0 84% 60%); }
+.mobile-output-line-warn { color: hsl(38 92% 50%); }
+.mobile-output-line-system { color: hsl(var(--muted-foreground)); }
+.mobile-output-line-result { color: hsl(160 84% 39%); }
+
+.mobile-output-time { color: hsl(var(--muted-foreground) / 0.75); font-size: 11px; flex: none; }
+.mobile-output-text { flex: 1; min-width: 0; }
+
+.mobile-output-pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--app-font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ---------- Errors sheet ---------- */
+
+.mobile-errors-sheet { display: flex; flex-direction: column; height: 100%; }
+.mobile-errors-list { padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+.mobile-error-card {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  border-radius: 0.6rem;
+  padding: 12px;
+}
+.mobile-error-card pre { font-family: var(--app-font-mono); font-size: 12px; }
+
+/* ---------- Preview frame (mobile) ---------- */
+
+.mobile-preview { display: flex; flex-direction: column; height: 100%; }
+.mobile-preview-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  z-index: 2;
+}
+.mobile-preview-device-toggle {
+  display: inline-flex; gap: 4px; background: hsl(var(--background));
+  border: 1px solid hsl(var(--border)); border-radius: 0.5rem; padding: 3px;
+}
+.mobile-preview-dev-btn {
+  min-height: 32px; min-width: 32px;
+  padding: 0 10px;
+  border: 0; background: transparent;
+  color: hsl(var(--muted-foreground));
+  font-size: 12px; font-weight: 800;
+  border-radius: 0.35rem;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.mobile-preview-dev-active { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+
+.mobile-ptr-indicator {
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  display: grid; place-items: center;
+  transition: height 0.08s;
+}
+
+.mobile-preview-canvas {
+  flex: 1; min-height: 0;
+  overflow: auto;
+  background: hsl(var(--muted) / 0.4);
+  display: grid; place-items: center;
+  padding: 12px;
+  scrollbar-width: thin;
+  position: relative;
+}
+
+.mobile-preview-frame-shadow {
+  background: hsl(var(--card));
+  border-radius: 32px;
+  box-shadow:
+    0 0 0 1px hsl(var(--border)),
+    0 0 0 8px hsl(var(--card)),
+    0 12px 32px hsl(0 0% 0% / 0.22);
+  padding: 8px;
+  user-select: none;
+}
+
+.mobile-preview-iframe {
+  border: 0;
+  border-radius: 24px;
+  background: white;
+  display: block;
+  transition: width 0.2s, height 0.2s;
+}
+
+.mobile-preview-empty {
+  display: grid; place-items: center; height: 100%;
+  color: hsl(var(--muted-foreground)); font-size: 13px;
+  padding: 24px; text-align: center;
+}
+
+.mobile-preview-fullscreen {
+  position: fixed; inset: 0; z-index: 70;
+  background: hsl(var(--background));
+}
+.mobile-preview-fullscreen .mobile-preview-canvas { height: calc(100dvh - 56px); }
+
+/* ============================================================================
+ * MOBILE LAB v4 — DYNAMIC VIEWER
+ * Language-aware content that swaps between Preview / Console · Output / Errors
+ * =========================================================================== */
+
+.mobile-viewer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: hsl(var(--background));
+  overflow: hidden;
+}
+
+.mobile-viewer-preview,
+.mobile-viewer-runtime,
+.mobile-viewer-errors {
+  height: 100%;
+}
+
+.mobile-viewer-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 10px;
+  height: 32px;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+.mobile-viewer-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: hsl(var(--foreground));
+  letter-spacing: 0.02em;
+}
+
+.mobile-viewer-x {
+  width: 32px; height: 32px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border-radius: 0.4rem;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* Sub-tab strip inside the runtime viewer — Console / Output */
+.mobile-viewer-subtabs {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  height: 36px;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+.mobile-viewer-subtab {
+  display: inline-flex; align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 0.45rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--muted-foreground));
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-viewer-subtab-active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+}
+
+.mobile-viewer-filename {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  direction: ltr;
+  font-family: var(--app-font-mono);
+  font-size: 11px;
+  color: hsl(var(--muted-foreground));
+  margin-inline-start: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-viewer-toolbar {
+  flex: none;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px;
+  height: 32px;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+.mobile-tool-btn {
+  width: 32px; height: 32px;
+  border-radius: 0.4rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  display: inline-flex; align-items: center; justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-viewer-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 12px;
+  background: hsl(var(--background));
+}
+
+.mobile-viewer-body-mono {
+  font-family: var(--app-font-mono);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.mobile-viewer-pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--app-font-mono);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.mobile-viewer-line {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 3px 0;
+  font-family: var(--app-font-mono);
+  font-size: 15px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border-bottom: 1px solid hsl(var(--border) / 0.4);
+}
+.mobile-viewer-line:last-child { border-bottom: 0; }
+
+.mobile-viewer-time {
+  color: hsl(var(--muted-foreground) / 0.75);
+  font-size: 10.5px;
+  flex: none;
+  font-family: var(--app-font-mono);
+}
+
+.mobile-viewer-text { flex: 1; min-width: 0; }
+
+.mobile-viewer-line-err { color: hsl(0 84% 50%); }
+.mobile-viewer-line-warn { color: hsl(38 92% 50%); }
+.mobile-viewer-line-system { color: hsl(var(--muted-foreground)); }
+.mobile-viewer-line-result { color: hsl(160 84% 39%); font-weight: 700; }
+.mobile-viewer-line-log { color: hsl(var(--foreground)); }
+
+/* ============================================================================
+ * LESSON MODE — mobile layout (LabLessonModePage)
+ * ============================================================================ */
+
+.mobile-lesson-root {
+  position: relative;
+  display: flex; flex-direction: column;
+  height: 100dvh;
+  background: hsl(var(--background));
+}
+
+.mobile-lesson-tabbar {
+  flex: none;
+  display: flex; gap: 6px;
+  padding: calc(var(--safe-top) + 8px) 12px 8px;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+
+.mobile-lesson-tab {
+  flex: 1;
+  min-height: 44px;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--muted-foreground));
+  font-weight: 800; font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.mobile-lesson-tab-active { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); border-color: hsl(var(--primary)); }
+.mobile-lesson-tab:disabled { opacity: 0.5; }
+
+.mobile-lesson-body {
+  flex: 1; min-height: 0; position: relative;
+  padding-bottom: var(--safe-bottom);
+}
+
+.mobile-lesson-fab {
+  position: fixed;
+  bottom: calc(20px + var(--safe-bottom));
+  left: 16px;
+  z-index: 50;
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--primary));
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-weight: 800;
+  box-shadow: 0 8px 24px hsl(var(--primary) / 0.40);
+  display: inline-flex; align-items: center;
+}

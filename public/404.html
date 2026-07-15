@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Code — جاري إعادة التوجيه…</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      :root { color-scheme: light dark; }
+      html, body {
+        font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
+        background: #f7f8fb;
+        color: #1f2937;
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 6rem 1.5rem;
+        text-align: center;
+      }
+      h1 { font-size: 1.5rem; margin: 0 0 0.75rem 0; }
+      p { line-height: 1.7; color: #4b5563; }
+      a.cta {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.6rem 1.2rem;
+        background: #2563eb;
+        color: #fff;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      @media (prefers-color-scheme: dark) {
+        html, body { background: #0f172a; color: #e2e8f0; }
+        p { color: #94a3b8; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>جاري إعادة التوجيه…</h1>
+      <p>
+        هذا الرابط غير موجود كملف ثابت على خادم GitHub Pages، لكن تطبيق
+        <strong>Smart Code</strong> يعمل من صفحة واحدة فقط. نقوم بتحويلك تلقائياً إلى النسخة الكاملة من الموقع.
+      </p>
+      <p>
+        إذا لم يتم التحويل خلال أجزاء من الثانية،
+        <a id="redirect" class="cta" href="/Code-Book-Smart/">اضغط هنا</a>.
+      </p>
+    </div>
+    <script>
+      // 404 fallback for GitHub Pages SPA hosting.
+      // The application is hash-routed (Wouter + useHashLocation) so all
+      // deep links end in "#/intro", "#/toc", etc. If a visitor lands
+      // here it means they typed (or were linked to) a non-fragment path
+      // that does not exist as a static file. We rewrite it to the
+      // hash-routed equivalent so the SPA can serve the right page.
+      (function () {
+        try {
+          var path = window.location.pathname || '/';
+          var search = window.location.search || '';
+          // Strip our GitHub-Pages project base so the path resolves
+          // correctly when the SPA boots.
+          var bare = path.replace(/^\/Code-Book-Smart\/?/, '/') || '/';
+          var href = '/Code-Book-Smart/#' + bare + search;
+          var link = document.getElementById('redirect');
+          if (link) link.setAttribute('href', href);
+          // replace (not assign) so the back-button history is clean.
+          window.location.replace(href);
+        } catch (_e) {
+          /* ignore — fallback link still works */
+        }
+      })();
+    </script>
+  </body>
+</html>
